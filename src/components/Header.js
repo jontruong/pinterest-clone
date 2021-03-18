@@ -8,12 +8,12 @@ import FaceIcon from '@material-ui/icons/Face';
 import Textsms from '@material-ui/icons/Textsms';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown'
 
-function Header() {
+function Header(props) {
     const [input, setInput] = useState("");
 
     const onSearchSubmit = (e) => {
         e.preventDefault();
-        console.log("this is the input", input)
+        props.onSubmit(input)
     }
     return (
         <Wrapper>
