@@ -1,13 +1,19 @@
 import React from 'react'
 import styled from 'styled-components';
 import Pin from './Pin';
+import './Mainboard.css';
 
 
-function Mainboard() {
+function Mainboard(props) {
+
+    let {pins} = props;
     return (
         <Wrapper>
-            <Container>
-                <Pin/>
+            <Container className="mainboard_container">
+                {pins.map((pin, index) => {
+                    let{urls} = pin
+                return <Pin key={index} urls={urls}/>
+                })}
             </Container>
         </Wrapper>
     )
@@ -25,6 +31,6 @@ justify-content: center;
 `
 
 const Container = styled.div`
-display: flex;
-width: 80%;
+margin: 0 auto;
+height: 100%;
 background-color: white;`
